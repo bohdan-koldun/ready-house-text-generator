@@ -1,10 +1,11 @@
-import { AppMenu } from './components';
+import { AppMenu, Generator } from './components';
 import './App.css';
 
 function App() {
   return (
     <div className="App">
      <AppMenu/>
+        <Generator/>
     </div>
   );
 }
