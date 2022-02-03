@@ -6,7 +6,7 @@ function App() {
   return (
     <div>
      <AppMenu/>
-        <div style={{ margin: '20px 15px'}}>
+        <div style={{ margin: '20px 20px'}}>
             <BrowserRouter>
                 <Routes>
                 <Route exact path="/" element={<GeneratorPage/>}/>
