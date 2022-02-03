@@ -1,2 +1,2 @@
 export * from './menu';
-export * from './generator';
+export * from './city-select';

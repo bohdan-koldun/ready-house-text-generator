@@ -21,32 +21,32 @@ export const getContentfulDataByQuery = query => {
         });
 }
 
-export const getAllCitiesAndTextTypes = async () => {
+export const getAllTexts = async () => {
     const query = `
 {
   textCollection {
     items {
-      type,
+      text,
+      type {
+        name,
+        position,
+        secondaryPosition
+      },
       city
     }
   }
 }
 `;
 
-    const data = await getContentfulDataByQuery(query);
+    return getContentfulDataByQuery(query).then(data => data.textCollection.items);
+}
 
-    const types = new Set();
+export const selectAllUniqueCities = (texts) => {
     const cities = new Set();
 
-    data.textCollection.items.forEach(item => {
+    texts.forEach(item => {
         item.city.forEach(city => cities.add(city));
-        item.type.forEach(type => types.add(type));
     });
 
-    return {
-        cities: Array.from(cities),
-        types: Array.from(types),
-    }
-
-
+    return Array.from(cities);
 }

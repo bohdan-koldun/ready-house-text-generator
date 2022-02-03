@@ -8,7 +8,6 @@ export class AppMenu extends React.Component {
     };
 
     handleClick = e => {
-        console.log('click ', e);
         this.setState({ current: e.key });
     };
 
@@ -16,11 +15,11 @@ export class AppMenu extends React.Component {
         const { current } = this.state;
         return (
             <Menu onClick={this.handleClick} selectedKeys={[current]} mode="horizontal">
-                <Menu.Item key="generator" icon={<FileTextOutlined />}>
-                    Генератор
+                <Menu.Item key="generator"  icon={<FileTextOutlined />}>
+                    <a href="/">Генератор</a>
                 </Menu.Item>
                 <Menu.Item key="app-changes" icon={<UnorderedListOutlined />}>
-                    Зміни
+                     <a href="/changes">Зміни</a>
                 </Menu.Item>
             </Menu>
         );
